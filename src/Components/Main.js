@@ -1,4 +1,6 @@
 import React from "react";
+import Switch from "./Switch";
+import Button from "./Button";
 import { useState } from "react";
 
 const Main = () => {
@@ -19,59 +21,11 @@ const Main = () => {
   return (
     <div className="main">
       <div className="main__switch">
-        <div className="main__switch--buttons">
-          <button
-            onClick={toggleSwitch1}
-            className={switch1 === false ? "false-switch" : "true-switch"}
-          >
-            ON
-          </button>
-          <button
-            onClick={toggleSwitch1}
-            className={switch1 !== false ? "false-switch" : "true-switch"}
-          >
-            OFF
-          </button>
-        </div>
-        <div className="main__switch--buttons">
-          <button
-            onClick={toggleSwitch2}
-            className={switch2 === false ? "false-switch" : "true-switch"}
-          >
-            ON
-          </button>
-          <button
-            onClick={toggleSwitch2}
-            className={switch2 !== false ? "false-switch" : "true-switch"}
-          >
-            OFF
-          </button>
-        </div>
-        <div className="main__switch--buttons">
-          <button
-            onClick={toggleSwitch3}
-            className={switch3 === false ? "false-switch" : "true-switch"}
-          >
-            ON
-          </button>
-          <button
-            onClick={toggleSwitch3}
-            className={switch3 !== false ? "false-switch" : "true-switch"}
-          >
-            OFF
-          </button>
-        </div>
+        <Switch switchx={switch1} toggleSwitch={toggleSwitch1} />
+        <Switch switchx={switch2} toggleSwitch={toggleSwitch2} />
+        <Switch switchx={switch3} toggleSwitch={toggleSwitch3} />
       </div>
-
-      <button
-        className={
-          switch1 && switch2 && switch3
-            ? "main__message true-message"
-            : "main__message false-message"
-        }
-      >
-        {switch1 && switch2 && switch3 ? "Go!" : "No way!"}
-      </button>
+      <Button switch1={switch1} switch2={switch2} switch3={switch3} />
     </div>
   );
 };
